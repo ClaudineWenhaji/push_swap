@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 HEADER = .
 
-SRCS = main.c push_swap.c actions.c utils.c sort_two.c sort_three.c sort_four.c sort_five.c sort_small.c radix_sort.c
+SRCS = print_error_and_exit.c push_swap.c actions.c actions1.c utils.c utils1.c utils2.c sort_two.c sort_three.c sort_four.c sort_five.c sort_small.c radix_sort.c sort_all.c
 
 OBJS = ${SRCS:.c=.o}
 

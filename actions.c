@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   actions.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clwenhaj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/03 14:06:08 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/01/03 15:02:59 by clwenhaj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	sa(t_list **a)
@@ -5,7 +17,7 @@ void	sa(t_list **a)
 	int	tmp;
 
 	if (!a || !*a || !(*a)->next)
-		return;
+		return ;
 	tmp = (*a)->value;
 	(*a)->value = (*a)->next->value;
 	(*a)->next->value = tmp;
@@ -17,7 +29,7 @@ void	sb(t_list **b)
 	int	tmp;
 
 	if (!b || !*b || !(*b)->next)
-		return;
+		return ;
 	tmp = (*b)->value;
 	(*b)->value = (*b)->next->value;
 	(*b)->next->value = tmp;
@@ -29,7 +41,7 @@ void	pa(t_list **a, t_list **b)
 	t_list	*tmp;
 
 	if (!b || !*b)
-		return;
+		return ;
 	tmp = *b;
 	*b = (*b)->next;
 	tmp->next = *a;
@@ -37,16 +49,16 @@ void	pa(t_list **a, t_list **b)
 	write(1, "pa\n", 3);
 }
 
-void    pb(t_list **a, t_list **b)
+void	pb(t_list **a, t_list **b)
 {
-        t_list  *tmp;
+	t_list	*tmp;
 
-        if (!a || !*a)
-                return;
+	if (!a || !*a)
+		return ;
 	tmp = *a;
-        *a = (*a)->next;
-        tmp->next = *b;
-        *b = tmp;
+	*a = (*a)->next;
+	tmp->next = *b;
+	*b = tmp;
 	write(1, "pb\n", 3);
 }
 
@@ -56,31 +68,11 @@ void	ra(t_list **a)
 	t_list	*top;
 
 	if (!a || !*a || !(*a)->next)
-		return;
+		return ;
 	top = *a;
 	*a = top->next;
 	top->next = 0;
 	bottom = ft_lstlast(*a);
-	bottom->next = top;	
+	bottom->next = top;
 	write(1, "ra\n", 3);
-}
-
-void	rra(t_list **a)
-{
-	t_list	*prev;
-	t_list	*last;
-
-	if (!a || !*a || !(*a)->next)
-		return;
-	prev = 0;
-	last = *a;
-	while (last->next)
-	{
-		prev = last;
-		last = last->next;
-	}
-	prev->next = 0;
-	last->next = *a;
-	*a = last;
-	write(1, "rra\n", 4);
 }

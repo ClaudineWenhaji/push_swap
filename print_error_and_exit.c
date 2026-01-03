@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_five.c                                        :+:      :+:    :+:   */
+/*   print_error_and_exit.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clwenhaj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 14:07:06 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/01/03 14:07:08 by clwenhaj         ###   ########.fr       */
+/*   Created: 2025/12/10 16:11:40 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/01/03 14:30:20 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_five(t_list **a, t_list **b)
+void	print_error_and_exit(void)
 {
-	push_min_of_a_to_b(a, b);
-	push_min_of_a_to_b(a, b);
-	sort_three(a);
-	pa(a, b);
-	pa(a, b);
+	write(2, "Error\n", 6);
+	exit(EXIT_FAILURE);
 }

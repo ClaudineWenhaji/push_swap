@@ -1,20 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clwenhaj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/03 14:06:20 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/01/03 14:39:44 by clwenhaj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void	push_swap(t_list **a, t_list **b)
+int	main(int ac, char **av)
 {
-	int	size;
+	t_list	*a;
+	t_list	*b;
+	int		i;
 
-	if (!a || !*a)
-		return;
-	if (is_sorted(*a))
+	a = 0;
+	b = 0;
+	if (ac == 2)
+		print_error_and_exit();
+	i = 1;
+	while (i < ac)
 	{
-		free_stack(*a);
-		free_stack(*b);
-		return;
+		ft_lstadd_back(&a, ft_lstnew(ft_atoi(av[i])));
+		i++;
 	}
-	size = ft_lstsize(*a);
-	if (size <= 5)
-		sort_small(a, b);
-	else
-		radix_sort(a, b);
+	if (is_duplicated(a))
+		print_error_and_exit();
+	index_stack(a);
+	sort_all(&a, &b);
+	free_stack(a);
+	free_stack(b);
+	return (0);
 }

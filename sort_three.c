@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clwenhaj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/03 14:07:24 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/01/03 14:23:18 by clwenhaj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	sort_three(t_list **a)
@@ -7,7 +19,7 @@ void	sort_three(t_list **a)
 	int	bottom;
 
 	if (!a || !(*a) || !(*a)->next || !(*a)->next->next)
-		return;
+		return ;
 	top = (*a)->index;
 	middle = (*a)->next->index;
 	bottom = (*a)->next->next->index;
