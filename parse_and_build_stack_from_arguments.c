@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   parse_and_build_stack_from_arguments.c             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clwenhaj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 14:06:20 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/01/07 15:47:59 by clwenhaj         ###   ########.fr       */
+/*   Created: 2026/01/07 14:42:07 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/01/07 15:26:24 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+t_list	*parse_and_build_stack_from_arguments(int ac, char **av)
 {
 	t_list	*a;
-	t_list	*b;
+	int		i;
 
 	a = NULL;
-	b = NULL;
-	if (ac < 2)
-		return (0);
-	if (ac == 2)
-		a = parse_and_build_stack_from_string(av[1]);
-	else
-		a = parse_and_build_stack_from_arguments(ac, av);
-	if (is_duplicated(a))
+	i = 1;
+	while (i < ac)
 	{
-		free_stack(a);
-		print_error_and_exit();
+		if (!is_number(av[i]))
+		{
+			free_stack(a);
+			print_error_and_exit();
+		}
+		ft_lstadd_back(&a, ft_lstnew(ft_atoi(av[i])));
+		i++;
 	}
-	index_stack(a);
-	sort_all(&a, &b);
-	free_stack(a);
-	free_stack(b);
-	return (0);
+	return (a);
 }

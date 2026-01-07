@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   is_number.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clwenhaj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 14:06:20 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/01/07 15:47:59 by clwenhaj         ###   ########.fr       */
+/*   Created: 2026/01/07 14:01:54 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/01/07 15:38:27 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int ac, char **av)
+int	is_number(char *str)
 {
-	t_list	*a;
-	t_list	*b;
+	int	i;
 
-	a = NULL;
-	b = NULL;
-	if (ac < 2)
+	i = 0;
+	if (!str || !str[0])
 		return (0);
-	if (ac == 2)
-		a = parse_and_build_stack_from_string(av[1]);
-	else
-		a = parse_and_build_stack_from_arguments(ac, av);
-	if (is_duplicated(a))
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
 	{
-		free_stack(a);
-		print_error_and_exit();
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
 	}
-	index_stack(a);
-	sort_all(&a, &b);
-	free_stack(a);
-	free_stack(b);
-	return (0);
+	return (1);
 }

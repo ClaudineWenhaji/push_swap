@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   arg_has_space.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clwenhaj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 14:06:20 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/01/07 15:47:59 by clwenhaj         ###   ########.fr       */
+/*   Created: 2026/01/06 15:00:38 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/01/06 15:52:46 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	arg_has_space(char *str)
 {
-	t_list	*a;
-	t_list	*b;
+	int	i;
 
-	a = NULL;
-	b = NULL;
-	if (ac < 2)
-		return (0);
-	if (ac == 2)
-		a = parse_and_build_stack_from_string(av[1]);
-	else
-		a = parse_and_build_stack_from_arguments(ac, av);
-	if (is_duplicated(a))
+	i = 0;
+	while (str[i])
 	{
-		free_stack(a);
-		print_error_and_exit();
+		if (str[i] == ' ')
+			return (1);
+		i++;
 	}
-	index_stack(a);
-	sort_all(&a, &b);
-	free_stack(a);
-	free_stack(b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: clwenhaj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 14:07:43 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/01/03 15:09:40 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:41:14 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,14 @@ int	is_sorted(t_list *a)
 	return (1);
 }
 
-void	free_stack(t_list *a)
+void	free_stack(t_list *stack)
 {
 	t_list	*tmp;
 
-	while (a)
+	while (stack)
 	{
-		tmp = a->next;
-		free(a);
-		a = tmp;
+		tmp = stack->next;
+		free(stack);
+		stack = tmp;
 	}
 }

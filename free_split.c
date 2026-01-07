@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   free_split.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clwenhaj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 14:06:20 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/01/07 15:47:59 by clwenhaj         ###   ########.fr       */
+/*   Created: 2026/01/06 15:12:06 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/01/07 14:20:55 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	free_split(char **split)
 {
-	t_list	*a;
-	t_list	*b;
+	int	i;
 
-	a = NULL;
-	b = NULL;
-	if (ac < 2)
-		return (0);
-	if (ac == 2)
-		a = parse_and_build_stack_from_string(av[1]);
-	else
-		a = parse_and_build_stack_from_arguments(ac, av);
-	if (is_duplicated(a))
+	if (!split)
+		return ;
+	i = 0;
+	while (split[i])
 	{
-		free_stack(a);
-		print_error_and_exit();
+		free(split[i]);
+		i++;
 	}
-	index_stack(a);
-	sort_all(&a, &b);
-	free_stack(a);
-	free_stack(b);
-	return (0);
+	free(split);
 }

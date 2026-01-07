@@ -6,7 +6,7 @@
 /*   By: clwenhaj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 14:07:43 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/01/03 15:15:46 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:25:23 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,8 @@ int	ft_atoi(char *str)
 		if (*str < '0' || *str > '9')
 			print_error_and_exit();
 		num = num * 10 + (*str - '0');
-		if ((num * sign) > INT_MAX || (num * sign) < INT_MIN)
+		if ((sign == 1 && num > INT_MAX)
+			|| (sign == -1 && num > (long)INT_MAX + 1))
 			print_error_and_exit();
 		str++;
 	}

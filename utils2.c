@@ -6,7 +6,7 @@
 /*   By: clwenhaj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 14:07:43 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/01/03 15:16:37 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:32:50 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_list	*ft_lstnew(int value)
 	if (!new)
 		return (NULL);
 	new->value = value;
-	new->index = -1;
+	new->index = 0;
 	new->next = NULL;
 	return (new);
 }
