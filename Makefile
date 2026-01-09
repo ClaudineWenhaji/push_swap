@@ -22,7 +22,8 @@ SRCS = print_error_and_exit.c \
 	sort_all.c \
 	ft_split.c \
 	free_split.c \
-	arg_has_space.c
+	arg_has_space.c \
+	clean_all_and_exit.c
 
 OBJS = ${SRCS:.c=.o}
 

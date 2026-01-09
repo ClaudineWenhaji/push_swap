@@ -1,39 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_and_build_stack_from_string.c                :+:      :+:    :+:   */
+/*   clean_exit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clwenhaj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/07 14:42:07 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/01/09 17:16:11 by clwenhaj         ###   ########.fr       */
+/*   Created: 2026/01/09 17:07:00 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/01/09 17:16:23 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*parse_and_build_stack_from_string(char *str)
+void	clean_all_and_exit(char **split, t_list *a)
 {
-	t_list	*a;
-	int		i;
-	char	**split;
-
-	a = NULL;
-	if (!arg_has_space(str))
-		print_error_and_exit();
-	split = ft_split(str);
-	if (!split || !split[0])
-	{
-		free_split(split);
-		print_error_and_exit();
-	}
-	i = 0;
-	while (split[i])
-	{
-		if (!is_number(split[i]))
-			clean_all_and_exit(split, a);
-		ft_lstadd_back(&a, ft_lstnew(ft_atoi(split[i++])));
-	}
 	free_split(split);
-	return (a);
+	free_stack(a);
+	print_error_and_exit();
 }

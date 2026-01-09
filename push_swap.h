@@ -6,7 +6,7 @@
 /*   By: clwenhaj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 14:06:30 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/01/07 15:14:43 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/01/09 17:16:45 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int		is_number(char *str);
 int		is_space(char c);
 int		count_words(char *str);
 int		arg_has_space(char *str);
+void		clean_all_and_exit(char **split, t_list *a);
 void	print_error_and_exit(void);
 
 int		find_index_of_min(t_list *a);

@@ -6,9 +6,15 @@
 /*   By: clwenhaj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 14:06:41 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/01/03 14:45:24 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/01/09 16:14:06 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// INDEX: Real values are replaced by normalized indices
+// so that problems with negative numbers are avoided
+// get_max_index: find the max index value
+// get_max_bits: calculate the number of bits necessary (for the max number)
+// radix_sort: sort Bucket using a BINARY approach
 
 #include "push_swap.h"
 

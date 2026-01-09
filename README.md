@@ -9,9 +9,8 @@ The main objective is to **sort efficiently stack A while minimizing the number 
 
 ### Allowed operations
 > At the beginning:
->> - The stack a contains a random number of unique negative and/or positive
-integers.
->> - The stack b is empty.
+>> - The stack A contains a random number of unique negative and/or positive integers.
+>> - The stack B is empty.
 >
 To sort the numbers in stack A in ascending order, the following operations are posible:
 
@@ -38,9 +37,13 @@ The last element becomes the first one.
 ### Instructions
 
 1. <u>Compilation:</u> **make**
-2. <u>Execution:</u> **./push_swap [list of numbers]**. For example ./push_swap 2 4 -1. 
-A **checker** is also available to verify if a sequence of operations sorts the list correctly ./push_swap 2 4 -1 | ./checker 2 3 -1 **OK** will be printed if sorting is correct otherwise **KO**
-3. <u>Error Hanling:</u> **Error** will be printed if ***out of range integers, non-integers or duplicated arguments***
+2. <u>Execution:</u> **./push_swap [list of numbers]**.
+>
+>> - For example ./push_swap 2 4 -1. 
+>> - A **checker** is also available to verify if a sequence of operations sorts the list correctly ./push_swap 2 4 -1 | ./checker 2 3 -1 
+>> - **OK** will be printed if sorting is correct otherwise **KO**
+>
+3. <u>Error Hanling:</u> **Error** followed by a new line will be printed if ***out of range integers, non-integers or duplicated arguments***.
 
 ### Technical Choices
 
@@ -57,17 +60,22 @@ A **checker** is also available to verify if a sequence of operations sorts the 
 - It is simple to implement using only stack operations (ra, pb, pa)
 - It scales well for large inputs while keeping the total number of moves reasonable
 
-<u>**About Radix Sort:**</u>
-It's a non-comparative algorithm that sorts numbers **digit by digit**, starting from the least significant digit (LSD) to the most significant digit (MSD). It does not compare numbers directly. Instead, it distributes them into "buckets".
-1. Look at the least significant bit of each number
-2. Move numbers between buckets or stacks (depending whether 0 or 1, bits)
-3. Repeat for the next bit (next significant digit) until all bits have been processed.
+<u>**What's Radix Sort?**</u>
+It's a non-comparative sorting algorithm that organizes data by processing individual digits in a step-by-step manner. It works by sorting numbers or strings based on their **positional value**, starting from the least significant digit (LSD) to the most significant digit (MSD) or vice-versa. In my work, i started from LSD. It does **not compare numbers directly**. Instead, it distributes them into "buckets". Radix Sort operates in two main phases:
 
-This way, numbers are sorted progressively without comparing them directly.
+1. **Digit-by-Digit Sorting**: data is grouped based on the value of a specific digit.
+2. **Stable Sorting**: within each group, the order of elements is preserved to ensure stability.
 
-Radix sort is atble (meaning equal numbers keep their original relative order). It works best for integers or fixed-length strings. Less-practical for floating-point numbers or very large numbers.
+<u>**Key components of Radix Sort**</u>
 
-For example: suppose we want to sort 170, 45, 75, 90, 802, 66
+1. **Buckets**: Temporary storage used to group elements based on their current digit. 
+2. **Stable Sorting Mechanism**: ensures the relative order of elements with the same digit value remains unchanged.
+3. **Digit Extraction**: A method to isolate specific digits for sorting (numbers are moved between buckets depending whether their LSD in bit is 0 or 1).
+4. **Iterative Process**: Repeatly processes each digit (next bit or next significant digit) until all bits are processed (the entire dataset is sorted).
+
+This way, numbers are sorted progressively without comparing them directly. Radix Sorting works best for integers or fixed-length strings. Less-practical for floating-point numbers or very large numbers.
+
+For example, suppose we want to sort in base 10: 170, 45, 75, 90, 802, 66
 
 Step 1: sort by the units digit
 - Units digits: 0, 5, 5, 0, 2, 6
